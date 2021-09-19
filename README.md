@@ -11,8 +11,9 @@
 [//]: # "#####                 BADGES                  #####"
 [//]: # "###################################################"
 
-[![Space Metric](https://codemeister.testspace.com/spaces/140292/metrics/127182/badge?token=3dc3fdd3ba92d0b33415bdfa3134ee9f69133848)](https://codemeister.testspace.com/spaces/140292/current/Code%20Coverage?utm_campaign=badge&utm_medium=referral&utm_source=coverage "Code Coverage (lines)")
+[![Space Metric](https://rubology.testspace.com/spaces/150510/metrics/173230/badge?token=3dd005877b04b492f35fd0fc2993a3da169063ce)](https://rubology.testspace.com/spaces/150510/current/Code%20Coverage?utm_campaign=badge&utm_medium=referral&utm_source=coverage "Code Coverage (lines)")
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](#license)
+[![Gem Version](https://badge.fury.io/rb/sanitized.svg)](https://badge.fury.io/rb/sanitized)
 
 ![ruby 2.5](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_5.yml/badge.svg?branch=master)
 ![ruby 2.6](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_6.yml/badge.svg?branch=master)
