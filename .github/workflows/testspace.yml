@@ -5,9 +5,9 @@ name: TestSpace Coverage
 
 on:
   push:
-    branches: [ master, draft, development ]
+    branches: [ master, dev ]
   pull_request:
-    branches: [ master, draft ]
+    branches: [ master, dev ]
 
 jobs:
   build:

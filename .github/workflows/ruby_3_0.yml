@@ -5,9 +5,9 @@ name: Ruby 3.0
 
 on:
   push:
-    branches: [ master, draft ]
+    branches: [ master, dev ]
   pull_request:
-    branches: [ master, draft ]
+    branches: [ master, dev ]
 
 jobs:
   test:
