@@ -15,10 +15,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](#license)
 [![Gem Version](https://badge.fury.io/rb/sanitized.svg)](https://badge.fury.io/rb/sanitized)
 
-![ruby 2.5](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_5.yml/badge.svg?branch=master)
-![ruby 2.6](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_6.yml/badge.svg?branch=master)
-![ruby 2.7](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_7.yml/badge.svg?branch=master)
-![ruby 3.0](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_0.yml/badge.svg?branch=master)
+![ruby 2.5](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_5.yml/badge.svg?branch=dev)
+![ruby 2.6](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_6.yml/badge.svg?branch=dev)
+![ruby 2.7](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_7.yml/badge.svg?branch=dev)
+![ruby 3.0](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_0.yml/badge.svg?branch=dev)
 
 
 [//]: # "###################################################"
