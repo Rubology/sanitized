@@ -7,9 +7,24 @@
 
 
 
+<!-- [//]: # "###################################################"
+[//]: # "#####              MASTER BADGES              #####"
 [//]: # "###################################################"
-[//]: # "#####                 BADGES                  #####"
-[//]: # "###################################################"
+
+[![Space Metric](https://rubology.testspace.com/spaces/159262/metrics/207965/badge?token=c621684ad592cf471071cfcb7e264c1b6a2aac5d)](https://rubology.testspace.com/spaces/159262/current/Code%20Coverage?utm_campaign=badge&utm_medium=referral&utm_source=coverage "Code Coverage (lines)")
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](#license)
+[![Gem Version](https://badge.fury.io/rb/sanitized.svg)](https://badge.fury.io/rb/sanitized)
+
+![ruby 2.5](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_5.yml/badge.svg?branch=master)
+![ruby 2.6](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_6.yml/badge.svg?branch=master)
+![ruby 2.7](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_7.yml/badge.svg?branch=master)
+![ruby 3.0](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_0.yml/badge.svg?branch=master)
+![ruby 3.1](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_1.yml/badge.svg?branch=master)
+ -->
+
+[//]: # "#################################################"
+[//]: # "#####              DEV BADGES               #####"
+[//]: # "#################################################"
 
 [![Space Metric](https://rubology.testspace.com/spaces/159262/metrics/207965/badge?token=c621684ad592cf471071cfcb7e264c1b6a2aac5d)](https://rubology.testspace.com/spaces/159262/current/Code%20Coverage?utm_campaign=badge&utm_medium=referral&utm_source=coverage "Code Coverage (lines)")
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](#license)
@@ -19,7 +34,6 @@
 ![ruby 2.6](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_6.yml/badge.svg?branch=dev)
 ![ruby 2.7](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_7.yml/badge.svg?branch=dev)
 ![ruby 3.0](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_0.yml/badge.svg?branch=dev)
-![ruby 3.1](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_1.yml/badge.svg?branch=dev)
 
 
 [//]: # "###################################################"
