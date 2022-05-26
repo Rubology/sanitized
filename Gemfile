@@ -2,16 +2,14 @@
 
 source 'https://rubygems.org'
 
-# gemspec
-
 gem 'rack'
 gem 'amazing_print'
 gem 'appraisal'
 gem 'byebug'
 gem 'puma'
-gem 'rake', '~> 13.0'
-gem 'rspec', '~> 3.0'
-gem 'rubocop'
+gem 'rake', 	'~> 13.0'
+gem 'rspec', 	'~> 3.0'
 gem 'sdoc'
 gem 'simplecov'
 gem 'simplecov-cobertura'
+
