@@ -35,6 +35,7 @@
 ![ruby 2.7](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_7.yml/badge.svg?branch=dev)
 ![ruby 3.0](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_0.yml/badge.svg?branch=dev)
 
+ 
 
 [//]: # "###################################################"
 [//]: # "#####                  INDEX                  #####"
