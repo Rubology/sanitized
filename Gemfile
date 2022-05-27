@@ -13,31 +13,14 @@ ruby_3_0     = Gem::Version.new('3.0')
 ruby_3_1     = Gem::Version.new('3.1')
 
 
-if current_ruby < ruby_2_6
-	gem 'rack'
-	gem 'amazing_print'
-	gem 'appraisal'
-	gem 'byebug'
-	gem 'puma'
-	gem 'rake', 	'~> 13.0'
-	gem 'rspec', 	'~> 3.0'
-	gem 'rubocop', 	'~>1.28.0'
-	gem 'sdoc'
-	gem 'simplecov'
-	gem 'simplecov-cobertura'
+gem 'rack'
+gem 'amazing_print'
+gem 'appraisal'
+gem 'byebug'
+gem 'puma'
+gem 'rake', 	'~> 13.0'
+gem 'rspec', 	'~> 3.0'
+gem 'sdoc'
+gem 'simplecov'
+gem 'simplecov-cobertura'
 
-else
-
-	gem 'rack'
-	gem 'amazing_print'
-	gem 'appraisal'
-	gem 'byebug'
-	gem 'puma'
-	gem 'rake', 	'~> 13.0'
-	gem 'rspec', 	'~> 3.0'
-	gem 'rubocop'
-	gem 'sdoc'
-	gem 'simplecov'
-	gem 'simplecov-cobertura'
-
-end

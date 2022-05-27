@@ -14,6 +14,7 @@ if current_ruby >= ruby_2_7
     gem 'sqlite3', '~> 1.4.0'
     gem 'activerecord', '7.0.3'
     gem 'database_cleaner-active_record'
+    gem 'rubocop'
   end
 end
 
@@ -21,9 +22,15 @@ end
 # ActiveRecord 6.1
 if current_ruby >= ruby_2_5
   appraise 'active-record-6-1-6' do
-    gem 'sqlite3', '~> 1.4.0'
     gem 'activerecord', '6.1.6'
+    gem 'sqlite3', '~> 1.4.0'
     gem 'database_cleaner-active_record'
+
+    if current_ruby < ruby_2_6
+      gem 'rubocop',  '~>1.28.0'
+    else
+      gem 'rubocop'
+    end
   end
 end
 
@@ -31,9 +38,10 @@ end
 # ActiveRecord 6.0
 if current_ruby >= ruby_2_5 and current_ruby < ruby_3_0
   appraise 'active-record-6-0-5' do
-    gem 'sqlite3', '~> 1.4.0'
     gem 'activerecord', '6.0.5'
+    gem 'sqlite3', '~> 1.4.0'
     gem 'database_cleaner-active_record'
+    gem 'rubocop',  '~>1.28.0'
   end
 end
 
@@ -41,9 +49,10 @@ end
 # ActiveRecord 5.2
 if current_ruby >= ruby_2_5 and current_ruby < ruby_3_0
   appraise 'active-record-5-2-8' do
-    gem 'sqlite3', '~> 1.3.3'
     gem 'activerecord', '5.2.8'
+    gem 'sqlite3', '~> 1.3.3'
     gem 'database_cleaner-active_record'
+    gem 'rubocop',  '~>1.28.0'
   end
 end
 
@@ -51,9 +60,10 @@ end
 # ActiveRecord 5.1
 if current_ruby >= ruby_2_5 and current_ruby < ruby_3_0
   appraise 'active-record-5-1-7' do
-    gem 'sqlite3', '~> 1.3.3'
     gem 'activerecord', '5.1.7'
+    gem 'sqlite3', '~> 1.3.3'
     gem 'database_cleaner-active_record'
+    gem 'rubocop',  '~>1.28.0'
   end
 end
 
@@ -61,9 +71,10 @@ end
 # ActiveRecord 5.0
 if current_ruby >= ruby_2_5 and current_ruby < ruby_3_0
   appraise 'active-record-5-0-7-2' do
-    gem 'sqlite3', '~> 1.3.3'
     gem 'activerecord', '5.0.7.2'
+    gem 'sqlite3', '~> 1.3.3'
     gem 'database_cleaner-active_record'
+    gem 'rubocop',  '~>1.28.0'
   end
 end
 
