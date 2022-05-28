@@ -20,6 +20,7 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '2.5' # Not needed with a .ruby-version file
+        key: ${{ runner.os }}-cache-v2-${{ hashFiles(...) }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
     - name: Install Appraisal Gems
