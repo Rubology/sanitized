@@ -1,3 +1,5 @@
+require './ruby_version'
+
 
 desc "Defaiult task for 'rake', runs 'rspec spec' on latest active_record version."
 task :default do
@@ -14,7 +16,7 @@ task :test_latest do
   puts "=====================================\n"
 
   latest = `bundle exec appraisal list`.split("\n").first
-  system "bundle exec appraisal #{latest} rspec spec"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle exec appraisal #{latest} rspec spec"
 end
 
 
@@ -28,7 +30,17 @@ end
 
 desc "Runs 'rspec spec' on every version of active_record."
 task :test_all do
-  system "bundle exec appraisal rspec spec"
+  # hide deprecation warnings
+  parts = ["HIDE_DEPRECATIONS=true"]
+
+  # set the gemfile for the current vertsion of ruby
+  parts << "BUNDLE_GEMFILE=#{RubyVersion.gemfile}"
+
+  # run appraisals
+  parts << "bundle exec appraisal rspec spec"
+
+  # runb the command
+  system parts.join(' ')
 end
 
 
@@ -48,7 +60,7 @@ end
 desc "Runs 'rspec spec --tag test' on latest active_record version."
 task :test_tagged do
   latest = `bundle exec appraisal list`.split("\n").first
-  system "bundle exec appraisal #{latest} rspec spec --tag test"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle exec appraisal #{latest} rspec spec --tag test"
 end
 
 
@@ -61,6 +73,11 @@ end
 
 desc "Installs the gems and gemfiles for each version of active_record within 'appraisals'."
 task :install do
+  # NOTE: GitHub Actions require ONLY the :test group gems.
+  #       so they are loaded first, creating the .lock file, which is then frozen
+  #       before loading the :development gems (if using the latest version of Ruby)
+
+
   puts "\n\n"
   puts "==================\n"
   puts " Updating Bundler"
@@ -68,16 +85,25 @@ task :install do
   system "gem update bundler"
 
   puts "\n\n"
-  puts "=================\n"
-  puts " Installing Gems"
-  puts "=================\n"
-  system "bundle install"
+  puts "======================\n"
+  puts " Installing Test Gems"
+  puts "======================\n"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle install"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle lock --add-platform x86_64-linux"
+
+  if RubyVersion.latest?
+    puts "\n\n"
+    puts "=============================\n"
+    puts " Installing Development Gems"
+    puts "=============================\n"
+    system "bundle install"
+  end
 
   puts "\n\n"
   puts "======================\n"
   puts " Installing Appraisal"
   puts "======================\n"
-  system "bundle exec appraisal install"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle exec appraisal install"
   puts "\n\n"
 end
 

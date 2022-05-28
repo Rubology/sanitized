@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 module Sanitized
-
   ##
   # = Description
   #
-  # ActiveModel::Type to cast and sanitize a model's Float attribute according to the 
+  # ActiveModel::Type to cast and sanitize a model's Float attribute according to the
   # options specified on initialisation.
   #
   # attribute :attr_name, Sanitized::Float.new(:abs, :ceil), default: 123.45
@@ -21,7 +20,7 @@ module Sanitized
     # ======================================================================
     #  Macros
     # ======================================================================
-    
+
     include Sanitized::Base
 
 
@@ -29,7 +28,7 @@ module Sanitized
     # ======================================================================
     #  Class Methods
     # ======================================================================
-    
+
     ##
     # Returns a Hash of valid options with the other options they are exclusive with
     #

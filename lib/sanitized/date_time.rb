@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 module Sanitized
-
   ##
   # = Description
   #
-  # ActiveModel::Type to cast and sanitize a model's DateTime attribute according to the 
+  # ActiveModel::Type to cast and sanitize a model's DateTime attribute according to the
   # options specified on initialisation.
   #
   # attribute :attr_name, Sanitized::DateTime.new(:end_of_week, :at_noon), default: Time.now
@@ -21,7 +20,7 @@ module Sanitized
     # ======================================================================
     #  Macros
     # ======================================================================
-    
+
     include Sanitized::Base
 
 
@@ -29,7 +28,7 @@ module Sanitized
     # ======================================================================
     #  Class Methods
     # ======================================================================
-    
+
     # return a Hash of valid options with the other options they are exclusive with
     def self.valid_options
       {
@@ -115,5 +114,6 @@ module Sanitized
         :noon
       ]
     end
+
   end # class Type
 end # module

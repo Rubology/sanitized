@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 module Sanitized
-
   ##
   # = Description
   #
-  # ActiveModel::Type to cast and sanitize a model's Integer attribute according to the 
+  # ActiveModel::Type to cast and sanitize a model's Integer attribute according to the
   # options specified on initialisation.
   #
   # attribute :attr_name, Sanitized::Integer.new(:abs), default: 123
@@ -21,7 +20,7 @@ module Sanitized
     # ======================================================================
     #  Macros
     # ======================================================================
-    
+
     include Sanitized::Base
 
 
@@ -29,7 +28,7 @@ module Sanitized
     # ======================================================================
     #  Class Methods
     # ======================================================================
-    
+
     ##
     # Returns a Hash of valid options with the other options they are exclusive with
     #

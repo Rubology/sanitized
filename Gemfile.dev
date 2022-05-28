@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+# load the gems needed for development
+gem 'rack'
+gem 'puma'
+gem 'rubocop'
+gem 'sdoc'
+gem 'simplecov'
+gem 'simplecov-cobertura'
+
+
