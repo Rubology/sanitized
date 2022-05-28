@@ -27,7 +27,8 @@ if current_ruby >= ruby_2_5
     gem 'database_cleaner-active_record'
 
     if current_ruby < ruby_2_6
-      gem 'rubocop',  '~>1.28.0'
+      gem 'rubocop-ast', '~>1.17.0'
+      gem 'rubocop',     '~>1.28.0'
     else
       gem 'rubocop'
     end
@@ -41,7 +42,13 @@ if current_ruby >= ruby_2_5 and current_ruby < ruby_3_0
     gem 'activerecord', '6.0.5'
     gem 'sqlite3', '~> 1.4.0'
     gem 'database_cleaner-active_record'
-    gem 'rubocop',  '~>1.28.0'
+
+    if current_ruby < ruby_2_6
+      gem 'rubocop-ast', '~>1.17.0'
+      gem 'rubocop',     '~>1.28.0'
+    else
+      gem 'rubocop'
+    end
   end
 end
 
@@ -52,7 +59,13 @@ if current_ruby >= ruby_2_5 and current_ruby < ruby_3_0
     gem 'activerecord', '5.2.8'
     gem 'sqlite3', '~> 1.3.3'
     gem 'database_cleaner-active_record'
-    gem 'rubocop',  '~>1.28.0'
+
+    if current_ruby < ruby_2_6
+      gem 'rubocop-ast', '~>1.17.0'
+      gem 'rubocop',     '~>1.28.0'
+    else
+      gem 'rubocop'
+    end
   end
 end
 
@@ -63,7 +76,13 @@ if current_ruby >= ruby_2_5 and current_ruby < ruby_3_0
     gem 'activerecord', '5.1.7'
     gem 'sqlite3', '~> 1.3.3'
     gem 'database_cleaner-active_record'
-    gem 'rubocop',  '~>1.28.0'
+
+    if current_ruby < ruby_2_6
+      gem 'rubocop-ast', '~>1.17.0'
+      gem 'rubocop',     '~>1.28.0'
+    else
+      gem 'rubocop'
+    end
   end
 end
 
@@ -74,7 +93,13 @@ if current_ruby >= ruby_2_5 and current_ruby < ruby_3_0
     gem 'activerecord', '5.0.7.2'
     gem 'sqlite3', '~> 1.3.3'
     gem 'database_cleaner-active_record'
-    gem 'rubocop',  '~>1.28.0'
+
+    if current_ruby < ruby_2_6
+      gem 'rubocop-ast', '~>1.17.0'
+      gem 'rubocop',     '~>1.28.0'
+    else
+      gem 'rubocop'
+    end
   end
 end
 
