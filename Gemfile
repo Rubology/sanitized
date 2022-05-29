@@ -2,14 +2,22 @@
 
 source 'https://rubygems.org'
 
-gem 'rack'
+# load the mionimum gems needed for testing appraisals
 gem 'amazing_print'
 gem 'appraisal'
 gem 'byebug'
-gem 'puma'
 gem 'rake', 	'~> 13.0'
 gem 'rspec', 	'~> 3.0'
-gem 'sdoc'
-gem 'simplecov'
-gem 'simplecov-cobertura'
+
+
+# load the development gems if using Ruby 3.1
+if Gem::Version.new(RUBY_VERSION).to_s.start_with?('3.1')
+	gem 'rack'
+	gem 'puma'
+	gem 'rubocop'
+	gem 'sdoc'
+	gem 'simplecov'
+	gem 'simplecov-cobertura'
+end
+
 
