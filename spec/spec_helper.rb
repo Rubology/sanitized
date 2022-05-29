@@ -11,25 +11,28 @@ require 'amazing_print'
 require 'database_cleaner/active_record'
 
 
-# Only calculate coverage if we're using the latest version of active_record
-latest         = `bundle exec appraisal list`.split("\n").first
-latest_version = latest.gsub('active-record-', '').gsub('-', '.')
-if latest_version == ActiveRecord.gem_version.to_s
-  require 'simplecov'
+# Only calculate coverage when latest version of ruby and ActiveRecord
+if Gem::Version.new(RUBY_VERSION).to_s.start_with?('3.1')
+  latest         = `bundle exec appraisal list`.split("\n").first
+  latest_version = latest.gsub('active-record-', '').gsub('-', '.')
+  if latest_version == ActiveRecord.gem_version.to_s
+    puts "\nInitializing simplecov"
+    require 'simplecov'
 
-  SimpleCov.configure do
-    # exclude tests
-    add_filter 'spec'
+    SimpleCov.configure do
+      # exclude tests
+      add_filter 'spec'
+    end
+
+    # set output to Coberatura XML if using Testspace analysis
+    if ENV['FOR_TESTSPACE']
+      require 'simplecov-cobertura'
+      SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+    end
+
+    # start it up
+    SimpleCov.start
   end
-
-  # set output to Coberatura XML if using Testspace analysis
-  if ENV['FOR_TESTSPACE']
-    require 'simplecov-cobertura'
-    SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
-  end
-
-  # start it up
-  SimpleCov.start
 end
 
 
@@ -43,7 +46,7 @@ require_relative '../lib/sanitized'
 # ======================================================================
 
 current_ruby = Gem::Version.new(RUBY_VERSION)
-msg          = "ActiveRecord: #{ActiveRecord.gem_version} (#{current_ruby})"
+msg          = "ActiveRecord-#{ActiveRecord.gem_version} | Ruby-#{current_ruby}"
 
 puts "\n\n"
 puts '=' * (msg.size + 4)
