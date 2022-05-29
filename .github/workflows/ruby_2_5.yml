@@ -24,8 +24,8 @@ jobs:
 
     - name: Install Appraisal Gems
 #      run: bundle exec rake install
-      run: 
-        gem 'appraisal'
+      run: |
+        gem install 'appraisal'
         bundle exec appraisal install
 
     - name: Run tests
