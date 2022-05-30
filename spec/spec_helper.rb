@@ -4,7 +4,7 @@
 # = Includes
 # ======================================================================
 
-require './ruby_version_helper'
+require './ruby_version'
 require 'rspec/expectations'
 require 'active_record'
 require 'byebug'
@@ -13,7 +13,7 @@ require 'database_cleaner/active_record'
 
 
 # Only calculate coverage when latest version of ruby and ActiveRecord
-if RubyVersionHelper.latest?
+if RubyVersion.latest?
   latest         = `bundle exec appraisal list`.split("\n").first
   latest_version = latest.gsub('active-record-', '').gsub('-', '.')
   if latest_version == ActiveRecord.gem_version.to_s
@@ -54,6 +54,17 @@ puts '=' * (msg.size + 4)
 puts "\n  #{msg}\n\n"
 puts '=' * (msg.size + 4)
 puts "\n\n"
+
+
+
+# ======================================================================
+#  Hide Deprecation Warnings
+# ======================================================================
+
+# silence all warnings when bulk testing with 'rake all'
+if ENV['HIDE_DEPRECATIONS']
+  ActiveSupport::Deprecation.behavior = :silence
+end
 
 
 
