@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Sanitized
-
   ##
   # Base methods for all Sanitized classes
   #
@@ -46,8 +45,8 @@ module Sanitized
     #   attribute :title, Sanitized::String.new(:squish, :titleize) do |value|
     #     value += '.' unless value.ends_with?('.')
     #   end
-    # 
-    def initialize(*opts, &block) 
+    #
+    def initialize(*opts, &block)
       @options = []
       @block   = block if block_given?
 

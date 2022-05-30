@@ -4,6 +4,7 @@
 # = Includes
 # ======================================================================
 
+require './ruby_version_helper'
 require 'rspec/expectations'
 require 'active_record'
 require 'byebug'
@@ -12,7 +13,7 @@ require 'database_cleaner/active_record'
 
 
 # Only calculate coverage when latest version of ruby and ActiveRecord
-if Gem::Version.new(RUBY_VERSION).to_s.start_with?('3.1')
+if RubyVersionHelper.latest?
   latest         = `bundle exec appraisal list`.split("\n").first
   latest_version = latest.gsub('active-record-', '').gsub('-', '.')
   if latest_version == ActiveRecord.gem_version.to_s
