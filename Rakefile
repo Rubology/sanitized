@@ -1,6 +1,4 @@
-require './ruby_version_helper'
-
-@gemfile = "ruby_#{RubyVersionHelper.current_version('_')}.gemfile"
+require './ruby_version'
 
 
 desc "Defaiult task for 'rake', runs 'rspec spec' on latest active_record version."
@@ -18,7 +16,7 @@ task :test_latest do
   puts "=====================================\n"
 
   latest = `bundle exec appraisal list`.split("\n").first
-  system "BUNDLE_GEMFILE=#{@gemfile} bundle exec appraisal #{latest} rspec spec"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle exec appraisal #{latest} rspec spec"
 end
 
 
@@ -32,7 +30,17 @@ end
 
 desc "Runs 'rspec spec' on every version of active_record."
 task :test_all do
-  system "BUNDLE_GEMFILE=#{@gemfile} bundle exec appraisal rspec spec"
+  # hide deprecation warnings
+  parts = ["HIDE_DEPRECATIONS=true"]
+
+  # set the gemfile for the current vertsion of ruby
+  parts << "BUNDLE_GEMFILE=#{RubyVersion.gemfile}"
+
+  # run appraisals
+  parts << "bundle exec appraisal rspec spec"
+
+  # runb the command
+  system parts.join(' ')
 end
 
 
@@ -52,7 +60,7 @@ end
 desc "Runs 'rspec spec --tag test' on latest active_record version."
 task :test_tagged do
   latest = `bundle exec appraisal list`.split("\n").first
-  system "BUNDLE_GEMFILE=#{@gemfile} bundle exec appraisal #{latest} rspec spec --tag test"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle exec appraisal #{latest} rspec spec --tag test"
 end
 
 
@@ -80,10 +88,10 @@ task :install do
   puts "======================\n"
   puts " Installing Test Gems"
   puts "======================\n"
-  system "BUNDLE_GEMFILE=#{@gemfile} bundle install"
-  system "BUNDLE_GEMFILE=#{@gemfile} bundle lock --add-platform x86_64-linux"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle install"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle lock --add-platform x86_64-linux"
 
-  if RubyVersionHelper.latest?
+  if RubyVersion.latest?
     puts "\n\n"
     puts "=============================\n"
     puts " Installing Development Gems"
@@ -95,7 +103,7 @@ task :install do
   puts "======================\n"
   puts " Installing Appraisal"
   puts "======================\n"
-  system "BUNDLE_GEMFILE=#{@gemfile} bundle exec appraisal install"
+  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle exec appraisal install"
   puts "\n\n"
 end
 
