@@ -81,6 +81,7 @@ task :install do
   puts " Installing Test Gems"
   puts "======================\n"
   system "BUNDLE_GEMFILE=#{@gemfile} bundle install"
+  system "BUNDLE_GEMFILE=#{@gemfile} bundle lock --add-platform x86_64-linux"
 
   if RubyVersionHelper.latest?
     puts "\n\n"
