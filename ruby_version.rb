@@ -4,9 +4,16 @@
 module RubyVersion
 	class << self
 
+		# Returns the latest known version of Ruby
+		def latest_version
+			Gem::Version.new('3.1')
+		end
+
+		
+
 		# Returns true if the current verion of Ruby is as defined
 		def latest?
-			is?(3.1)
+			is?(latest_version)
 		end
 
 
