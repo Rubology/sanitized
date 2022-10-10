@@ -56,6 +56,8 @@ GEM
     unicode-display_width (2.1.0)
 
 PLATFORMS
+  -darwin-21
+  arm64-darwin-21
   x86_64-darwin-20
   x86_64-darwin-21
   x86_64-linux
@@ -72,4 +74,4 @@ DEPENDENCIES
   sdoc
 
 BUNDLED WITH
-   2.3.14
+   2.3.20
