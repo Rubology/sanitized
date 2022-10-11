@@ -73,11 +73,6 @@ end
 
 desc "Installs the gems and gemfiles for each version of active_record within 'appraisals'."
 task :install do
-  # NOTE: GitHub Actions require ONLY the :test group gems.
-  #       so they are loaded first, creating the .lock file, which is then frozen
-  #       before loading the :development gems (if using the latest version of Ruby)
-
-
   puts "\n\n"
   puts "==================\n"
   puts " Updating Bundler"
@@ -85,19 +80,12 @@ task :install do
   system "gem update bundler"
 
   puts "\n\n"
-  puts "======================\n"
-  puts " Installing Test Gems"
-  puts "======================\n"
+  puts "=================\n"
+  puts " Installing Gems"
+  puts "=================\n"
+  puts "Using '#{RubyVersion.gemfile}'\n\n"
   system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle install"
   system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle lock --add-platform x86_64-linux"
-
-  if RubyVersion.latest?
-    puts "\n\n"
-    puts "=============================\n"
-    puts " Installing Development Gems"
-    puts "=============================\n"
-    system "bundle install"
-  end
 
   puts "\n\n"
   puts "======================\n"
