@@ -15,7 +15,7 @@ task :test_latest do
   puts " Testing Latest ActiveRecord Version"
   puts "=====================================\n"
 
-  latest = `bundle exec appraisal list`.split("\n").first
+  latest = `BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle exec appraisal list`.split("\n").first
   system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle exec appraisal #{latest} rspec spec"
 end
 
@@ -105,24 +105,21 @@ end
 
 
 
-desc "Generates the Sdoc files & opens them in the default browser."
+desc "Generates the Yard documentation & opens it in the default browser."
 task :doc do
-  `sdoc -e "UTF-8" --title 'Sanitized' --main 'README.md' -T 'rails' -x spec -x CHANGELOG.md -x CODE_OF_CONDUCT.md -x DEVELOPER_GUIDE.md -x SECURITY.md`
-  `open http://localhost:9292`
+  unless RubyVersion.latest?
+    fail "\nDocs only available in Ruby #{RubyVersion.latest_version}\n\n"
+  end
+
+  `yardoc`
+  `open doc/index.html`
 end
 
 
 
-desc "Generates the Sdoc files & opens them in the default browser. (alias for :doc)"
+desc "Generates the Yard documentation & opens it in the default browser. (alias for :doc)"
 task :docs do
   Rake::Task["doc"].invoke
-end
-
-
-
-desc "starts a rackup server for the docs."
-task :doc_server do
-  `rackup doc_server.ru`
 end
 
 

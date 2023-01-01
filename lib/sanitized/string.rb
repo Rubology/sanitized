@@ -2,19 +2,20 @@
 
 module Sanitized
   ##
-  # = Description
+  # Sanitized::String
   #
-  # ActiveModel::Type to cast and sanitize a model's String attribute according to the
-  # options specified on initialisation.
+  # An ActiveModel::Type that casts and sanitizes a model's String attribute 
+  # according to the options specified on initialisation.
   #
-  # attribute :attr_name, Sanitized::String.new(:squish, :upcase), default: 'CodeMeister'
+  # @example simple example
+  #   attribute :attr_name, Sanitized::String.new(:squish, :upcase), default: 'CodeMeister'
   #
-  # Can optionally include a custom block:
+  # @example with optional custom block
   #   type_cast = Sanitized::String.new(:squish, :upcase) do |value|
   #       ... custome code ...
   #   end
   #   attribute :attr_name, type_cast, default: 'CodeMeister'
-  #
+  # 
   class String < ::ActiveModel::Type::String
 
     # ======================================================================
@@ -30,7 +31,11 @@ module Sanitized
     # ======================================================================
 
     ##
-    # Returns a Hash of valid options with the other options they are exclusive with
+    # Returns a Hash of valid options and their excusivity.
+    # @return [Hash]
+    #   where each key is a valid sanitize option and the body is an <code>Array</code>
+    #   of options that are mutually exclusive. E.g. you cannot have 
+    #   both :upcase and :downcase at the same time.
     #
     def self.valid_options
       case_opts = [:capitalize, :camelcase, :camelize, :dasherize, :downcase, :humanize,

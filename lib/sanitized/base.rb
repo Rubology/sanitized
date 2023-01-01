@@ -2,14 +2,32 @@
 
 module Sanitized
   ##
-  # Base methods for all Sanitized classes
+  # Sanitized::Base
   #
-  module Base # :nodoc:
-
+  # The core methods for all Sanitized classes
+  #
+  # @private
+  #
+  module Base
+    
     ##
-    # sanitize the value according to the options provided on initialization.
+    # Sanitizes the value according to the options set for the attribute.
     #
-    def cast(value) # :nodoc:
+    # @param  value 
+    #   the value to be sanitized. Class depends on the Sanitized model.
+    #
+    # @return [*any] 
+    #   the sanitized value. Class depends on the Sanitized model.
+    #
+    # @return [NilClass] 
+    #   <code>nil</code> on error.
+    #
+    # @note
+    #   The actions taken and class accepted/returned depend on the 
+    #   attribute settings when initialized. E.g. Sanitized::String
+    #   accepts and returns a String class.
+    #
+    def cast(value)
       val = super
       val = sanitize(val)
       val = @block.call(val) if @block.present?
@@ -21,6 +39,12 @@ module Sanitized
 
 
     # public reader for set options
+    ##
+    # Returns the configuration options for the attribute.
+    #
+    # @return [Array]
+    #   configuration options for the attribute.
+    #    
     def options
       @options ||= []
     end
@@ -34,14 +58,22 @@ module Sanitized
     # ======================================================================
     private
 
-    # Set the options, record the block and verfiy that every given option is valid
+    ##
+    # Sets and validates the options for the attribute, and records any custom block.
     #
-    # [:opts]
-    #   An Array of Symbol options to be run with every :cast
+    # @param [Array] opts
+    #   an Array of Symbols defining each sanitize method to perform.
     #
-    # [:block]
-    #   An optional block to be run with every :cast
+    # @param [&block] block
+    #   a custom Proc to be run after any opts have been applied.
     #
+    # @return
+    #   the instantiated object.
+    #
+    # @raise [ArgumentError]
+    #   when an invalid option is provided.
+    #    
+    # @example
     #   attribute :title, Sanitized::String.new(:squish, :titleize) do |value|
     #     value += '.' unless value.ends_with?('.')
     #   end
@@ -56,7 +88,16 @@ module Sanitized
 
 
 
-    # raise an exception if any given option is invalid
+    ##
+    # Verifies each option is valid.
+    #
+    # @param [Array] opts
+    #   an Array of Symbols where each symbol is verified.
+    #
+    # @raise [ArgumentError]
+    #   when an option is not included within the accepted list
+    #   or is mututally exlcusive with another option.
+    #
     def assert_valid_options(opts)
       opts.each do |opt|
         fail_invalid_option(opt) unless valid_options.keys.include?(opt)
@@ -78,7 +119,14 @@ module Sanitized
 
 
 
-    # raise an error based on the invalid option
+    # Raises an error based on the invalid option
+    #
+    # @param opt
+    #   the invalid option to raise an error for.
+    #
+    # @raise [ArgumentError]
+    #   message describing the error.
+    #
     def fail_invalid_option(opt)
       if opt.is_a?(Symbol)
         fail ArgumentError, ":#{opt.to_s} is not a valid option."
@@ -89,14 +137,24 @@ module Sanitized
 
 
 
-    # return a Hash of valid options with the other options they are exclusive with
+    ##
+    # @return [Hash]
+    #   valid options with the other options they are exclusive with.
     def valid_options
       self.class.valid_options
     end
 
 
 
-    # apply the required sanitization to the vlaue.
+    ##
+    # Applies the required sanitization options to the value.
+    #
+    # @param value
+    #   the value to be sanitized. Class is dependent on the sanitized model used.
+    #
+    # @return
+    #   the sanitized value. Class is dependent on the sanitized model used.
+    #
     def sanitize(value) # :nodoc
       result = value
       options.each { |opt| result = result.send(opt) }

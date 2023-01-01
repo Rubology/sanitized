@@ -2,14 +2,15 @@
 
 module Sanitized
   ##
-  # = Description
+  # Sanitized::DateTime
   #
-  # ActiveModel::Type to cast and sanitize a model's DateTime attribute according to the
-  # options specified on initialisation.
+  # An ActiveModel::Type that casts and sanitizes a model's DateTime attribute 
+  # according to the options specified on initialisation.
   #
-  # attribute :attr_name, Sanitized::DateTime.new(:end_of_week, :at_noon), default: Time.now
-  #
-  # Can optionally include a custom block:
+  # @example simple example
+  #   attribute :attr_name, Sanitized::DateTime.new(:end_of_week, :at_noon), default: Time.now
+  # 
+  # @example with optional custom block
   #   type_cast = Sanitized::DateTime.new(:beginning_of_week, :at_noon) do |value|
   #       ... custome code ...
   #   end
@@ -29,7 +30,13 @@ module Sanitized
     #  Class Methods
     # ======================================================================
 
-    # return a Hash of valid options with the other options they are exclusive with
+    ##
+    # Returns a Hash of valid options and their excusivity.
+    # @return [Hash]
+    #   where each key is a valid sanitize option and the body is an <code>Array</code>
+    #   of options that are mutually exclusive. E.g. you cannot have 
+    #   both :at_midnight and :at_noon at the same time.
+    #
     def self.valid_options
       {
         at_beginning_of_day:      self.exclusive_options,
@@ -73,7 +80,7 @@ module Sanitized
 
 
 
-    # Return an Array of the options that modify both the date and the time
+    # @retrun [Array] of the options that modify both the date and the time
     def self.exclusive_options
       [
         :at_beginning_of_day,

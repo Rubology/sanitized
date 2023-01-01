@@ -1,0 +1,6 @@
+--no-private
+--title "Encoded Token"
+lib/**/*.erb
+lib/**/*.rb
+--files README.md,EXAMPLE.md,CHANGELOG.md,SECURITY.md,DEVELOPER_GUIDE.md,CODE_OF_CONDUCT.md,LICENSE.txt
+--exclude version.rb
