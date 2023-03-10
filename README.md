@@ -15,6 +15,7 @@
 [![Gem Version](https://badge.fury.io/rb/sanitized.svg)](https://badge.fury.io/rb/sanitized)
 [![Space Metric](https://rubology.testspace.com/spaces/191445/metrics/298737/badge?token=65ce3fa81b65d2f32e86d65e4f7a41f1c63c5df0)](https://rubology.testspace.com/spaces/191445/current/Code%20Coverage?utm_campaign=badge&utm_medium=referral&utm_source=coverage "Code Coverage (lines)")
 
+![ruby 3.2](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_2.yml/badge.svg?branch=main)
 ![ruby 3.1](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_1.yml/badge.svg?branch=main)
 ![ruby 3.0](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_0.yml/badge.svg?branch=main)
 ![ruby 2.7](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_7.yml/badge.svg?branch=main)
