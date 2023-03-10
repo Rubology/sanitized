@@ -33,11 +33,11 @@ module Sanitized
     ##
     # Returns a Hash of valid options and their excusivity.
     # @return [Hash]
-    #   where each key is a valid sanitize option and the body is an <code>Array</code>
+    #   where each key is a valid _sanitize option and the body is an <code>Array</code>
     #   of options that are mutually exclusive. E.g. you cannot have 
     #   both :at_midnight and :at_noon at the same time.
     #
-    def self.valid_options
+    def self._valid_options
       {
         at_beginning_of_day:      self.exclusive_options,
         at_beginning_of_hour:     self.exclusive_options,

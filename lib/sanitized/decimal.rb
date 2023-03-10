@@ -33,11 +33,11 @@ module Sanitized
     ##
     # Returns a Hash of valid options and their excusivity.
     # @return [Hash]
-    #   where each key is a valid sanitize option and the body is an <code>Array</code>
+    #   where each key is a valid _sanitize option and the body is an <code>Array</code>
     #   of options that are mutually exclusive. E.g. you cannot have 
     #   both :floor and :ceil at the same time.
     #
-    def self.valid_options
+    def self._valid_options
       {
         abs:      [],
         ceil:     [:floor],

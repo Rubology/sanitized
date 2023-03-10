@@ -29,7 +29,7 @@ module Sanitized
     #
     def cast(value)
       val = super
-      val = sanitize(val)
+      val = _sanitize(val)
       val = @block.call(val) if @block.present?
       return val
     rescue
@@ -62,7 +62,7 @@ module Sanitized
     # Sets and validates the options for the attribute, and records any custom block.
     #
     # @param [Array] opts
-    #   an Array of Symbols defining each sanitize method to perform.
+    #   an Array of Symbols defining each _sanitize method to perform.
     #
     # @param [&block] block
     #   a custom Proc to be run after any opts have been applied.
@@ -82,7 +82,7 @@ module Sanitized
       @options = []
       @block   = block if block_given?
 
-      assert_valid_options(opts)
+      _assert__valid_options(opts)
       super()
     end
 
@@ -98,13 +98,13 @@ module Sanitized
     #   when an option is not included within the accepted list
     #   or is mututally exlcusive with another option.
     #
-    def assert_valid_options(opts)
+    def _assert__valid_options(opts)
       opts.each do |opt|
-        fail_invalid_option(opt) unless valid_options.keys.include?(opt)
+        _fail_invalid_option(opt) unless _valid_options.keys.include?(opt)
 
         # check for exclusive options
-        if valid_options[opt].present? and options.present?
-          valid_options[opt].each do |exclusive_opt|
+        if _valid_options[opt].present? and options.present?
+          _valid_options[opt].each do |exclusive_opt|
             if options.include?(exclusive_opt)
               msg = ":#{opt.to_s} and :#{exclusive_opt} are mutually exclusive."\
                     " You may only use one or the other."
@@ -127,7 +127,7 @@ module Sanitized
     # @raise [ArgumentError]
     #   message describing the error.
     #
-    def fail_invalid_option(opt)
+    def _fail_invalid_option(opt)
       if opt.is_a?(Symbol)
         fail ArgumentError, ":#{opt.to_s} is not a valid option."
       else
@@ -140,8 +140,8 @@ module Sanitized
     ##
     # @return [Hash]
     #   valid options with the other options they are exclusive with.
-    def valid_options
-      self.class.valid_options
+    def _valid_options
+      self.class._valid_options
     end
 
 
@@ -155,7 +155,7 @@ module Sanitized
     # @return
     #   the sanitized value. Class is dependent on the sanitized model used.
     #
-    def sanitize(value) # :nodoc
+    def _sanitize(value) # :nodoc
       result = value
       options.each { |opt| result = result.send(opt) }
       return result

@@ -8,14 +8,14 @@ RSpec.describe "String: Exclusive Options" do
 
   describe "options have the correct exclusivity for:" do
 
-    Sanitized::String.valid_options.keys.each do |opt|
+    Sanitized::String._valid_options.keys.each do |opt|
       it ":#{opt}" do
-        if Sanitized::String.valid_options[opt].present?
-          Sanitized::String.valid_options[opt].each do |exclusive_opt|
-            expect(Sanitized::String.valid_options[exclusive_opt]).to include(opt)
+        if Sanitized::String._valid_options[opt].present?
+          Sanitized::String._valid_options[opt].each do |exclusive_opt|
+            expect(Sanitized::String._valid_options[exclusive_opt]).to include(opt)
           end
         else
-          expect(Sanitized::String.valid_options[opt]).to be_blank
+          expect(Sanitized::String._valid_options[opt]).to be_blank
         end
       end
     end # each |opt|

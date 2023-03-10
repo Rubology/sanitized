@@ -33,8 +33,8 @@ module Sanitized
     ##
     # Returns a Hash of valid options and their excusivity.
     # @return [Hash]
-    #   where each key is a valid sanitize option.
-    def self.valid_options
+    #   where each key is a valid _sanitize option.
+    def self._valid_options
       {
         abs: []
       }
