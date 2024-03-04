@@ -16,7 +16,7 @@ task :test_latest do
   puts "=====================================\n"
 
   latest = `BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle _2.3.26_ exec appraisal list`.split("\n").first
-  system "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle _2.3.26_ exec appraisal #{latest} rspec spec"
+  system "WITH_COVERAGE=true BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle _2.3.26_ exec appraisal #{latest} rspec spec"
 end
 
 
@@ -80,7 +80,7 @@ task :install do
   # system "gem update bundler"
   system "gem install bundler:2.3.26"
 
-  
+
 
   puts "\n\n"
   puts "=================\n"
@@ -148,7 +148,7 @@ desc "Opens the coverage results in the default brwoser."
 task :coverage do
   Rake::Task["test_latest"].invoke
 
-  unless ENV['FOR_TESTSPACE']
+  unless ENV['GITHUB_ACTION']
     `open coverage/index.html`
   end
 end
@@ -184,4 +184,3 @@ task :bundler do
   puts  "BUNDLE_GEMFILE=#{RubyVersion.gemfile} bundle _2.3.26_ "
   puts "\n\n"
 end
-
