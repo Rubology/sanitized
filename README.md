@@ -31,8 +31,10 @@
 <a name='requirements'></a>
 ## Requirements
 
-- Ruby 2.5+
-- ActiveRecord 5.0+
+| Software     | Supported Versions  | Notes  |
+|--------------|:-------------------:|--------|
+| Ruby         | 2.5 → 3.4           | All patch versions supported |
+| ActiveRecord | 5.0 → 8.0           | Rails 5, 6, 7 and 8 compatible |
 
 
 
