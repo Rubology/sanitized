@@ -11,23 +11,28 @@
 [//]: # "#####              BADGES              #####"
 [//]: # "############################################"
 
+## Status
 
-| Main Branch| Dev Branch|
-|---|---|
-| ![ruby 3.4](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_4.yml/badge.svg?branch=main) | ![ruby 3.4](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_4.yml/badge.svg?branch=dev) |
-| ![ruby 3.3](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_3.yml/badge.svg?branch=main) | ![ruby 3.3](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_3.yml/badge.svg?branch=dev) |
-| ![ruby 3.2](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_2.yml/badge.svg?branch=main) | ![ruby 3.2](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_2.yml/badge.svg?branch=dev) |
-| ![ruby 3.1](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_1.yml/badge.svg?branch=main) | ![ruby 3.1](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_1.yml/badge.svg?branch=dev) |
-| ![ruby 3.0](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_0.yml/badge.svg?branch=main) | ![ruby 3.0](https://github.com/Rubology/sanitized/actions/workflows/ruby_3_0.yml/badge.svg?branch=dev) |
-| ![ruby 2.7](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_7.yml/badge.svg?branch=main) | ![ruby 2.7](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_7.yml/badge.svg?branch=dev) |
-| ![ruby 2.6](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_6.yml/badge.svg?branch=main) | ![ruby 2.6](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_6.yml/badge.svg?branch=dev) |
-| ![ruby 2.5](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_5.yml/badge.svg?branch=main) | ![ruby 2.5](https://github.com/Rubology/sanitized/actions/workflows/ruby_2_5.yml/badge.svg?branch=dev) |
-| &nbsp; |  |
-| [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](#license)  | [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](#license) |
-| [![Gem Version](https://badge.fury.io/rb/state_gate.svg)](https://badge.fury.io/rb/sanitized) | [![Gem Version](https://badge.fury.io/rb/state_gate.svg)](https://badge.fury.io/rb/sanitized) |
-| ![100% Coverage](https://github.com/Rubology/state_gate/actions/workflows/code_coverage.yml/badge.svg?branch=main) | ![100% Coverage](https://github.com/Rubology/state_gate/actions/workflows/code_coverage.yml/badge.svg?branch=dev) |
+![Build](https://github.com/Rubology/sanitized/actions/workflows/build.yml/badge.svg?branch=dev) 
+&nbsp;
+![100% Test Coverage](https://github.com/Rubology/sanitized/actions/workflows/code_coverage.yml/badge.svg?branch=dev)
+&nbsp;
+[![Gem Version](https://badge.fury.io/rb/sanitized.svg)](https://badge.fury.io/rb/sanitized)
+&nbsp;
+[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](#license)
 
 
+
+[//]: # "###################################################"
+[//]: # "#####               REQUIREMENTS              #####"
+[//]: # "###################################################"
+
+
+<a name='requirements'></a>
+## Requirements
+
+- Ruby 2.5+
+- ActiveRecord 5.0+
 
 
 
@@ -66,7 +71,8 @@
 <a name='sanitized'></a>
 ## **Never trust user input - _EVER!_**
 
-Before validating input, it's common practice to sanitize it; removing leading and trailing spaces, downcasing emails, reducing multiple spaces between names to a single space, etc.
+Before validating input, it's common practice to sanitize it; removing leading and trailing spaces, 
+downcasing emails, reducing multiple spaces between names to a single space, etc.
 
 ***Sanitized*** simplifies the process of cleaning input data, significantly reducing 
 the callbacks and custom methods normally used to handle the issue.
@@ -80,21 +86,6 @@ methods for String, Integer, Float, etc.
 
 And because every application is original, helpers are easily extended with 
 your own custom code, for those unique edge cases you need to catch.
-
-
-
----
-
-[//]: # "###################################################"
-[//]: # "#####               REQUIREMENTS              #####"
-[//]: # "###################################################"
-
-
-<a name='requirements'></a>
-## Requirements
-
-- Ruby 2.5+
-- ActiveRecord 5.0+
 
 
 

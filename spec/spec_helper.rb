@@ -9,7 +9,12 @@ require 'rspec/expectations'
 require 'active_record'
 require 'byebug'
 require 'amazing_print'
-require 'database_cleaner/active_record'
+
+if ActiveRecord.version.to_s.start_with?('5.0')
+  require 'database_cleaner'
+else
+  require 'database_cleaner-active_record'
+end
 
 # Only calculate coverage when latest version of ruby and ActiveRecord
 if ENV['WITH_COVERAGE']

@@ -82,7 +82,7 @@ end
 if RubyVersion >= 2.5 and RubyVersion < 3.0
   appraise 'active-record-5-2-8-1' do
     gem 'minitest', '5.15.0'
-    gem 'sqlite3', '~> 1.3.3'
+    gem 'sqlite3', '~> 1.3.6'
     gem 'activerecord', '5.2.8.1'
     gem 'database_cleaner-active_record'
   end
@@ -93,7 +93,7 @@ end
 if RubyVersion >= 2.5 and RubyVersion < 3.0
   appraise 'active-record-5-1-7' do
     gem 'minitest', '5.15.0'
-    gem 'sqlite3', '~> 1.3.3'
+    gem 'sqlite3', '~> 1.3.6'
     gem 'activerecord', '5.1.7'
     gem 'database_cleaner-active_record'
   end
@@ -104,8 +104,8 @@ end
 if RubyVersion >= 2.5 and RubyVersion < 3.0
   appraise 'active-record-5-0-7-2' do
     gem 'minitest', '5.15.0'
-    gem 'sqlite3', '~> 1.3.3'
+    gem 'sqlite3', '1.3.13'
     gem 'activerecord', '5.0.7.2'
-    gem 'database_cleaner-active_record'
+    gem 'database_cleaner', '~> 1.8.0'
   end
 end
